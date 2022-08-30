@@ -20,9 +20,9 @@ public class Main {
 
         List<? extends T> elements = stream.collect(Collectors.toList());
 
-            if (elements.get(0) != null) {
+            if (elements != null && !elements.isEmpty()) {
                 elements.sort(order);
-                minMaxConsumer.accept(Collections.max(elements, order), Collections.min(elements, order));
+                minMaxConsumer.accept(Collections.min(elements, order), Collections.max(elements, order));
             } else {
                 minMaxConsumer.accept(null, null);
             }
